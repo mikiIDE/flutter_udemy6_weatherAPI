@@ -70,8 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
         weather = (body["weather"]?[0]?["description"] ?? "") as String;
         humidity = (main["humidity"] ?? 0) as int;
         temperature = (main["temp"] ?? 0).toDouble();
-        temperatureMax = (main["temp_max"] ?? 0).toDouble();
-        temperatureMin = (main["temp_min"] ?? 0).toDouble();
+        temperatureMax = (main["temp_max"] ?? 0).toDouble(); // as double;だと、取得したデータがdouble以外の場合エラーになる
+        temperatureMin = (main["temp_min"] ?? 0).toDouble(); // toDouble();だと、int型データの場合もエラーなく取得できる（例：25 → 25.0）
       });
 
       print('天気データ更新完了');
